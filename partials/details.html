@@ -1,0 +1,171 @@
+<div class="row">
+<div class="aside col-sm-4">
+		<div class="col-sm-12">
+		<div class="row">
+			<div class="sub-container" ng-controller="detailsController">
+				<h4 class="title">Search Products</h4>
+				<form class="form-group">
+					<input type="text" class="form-control" ng-model="query" placeholder="Search Products">
+				</form>
+				<div>
+				<ul>
+					<li class="product-search-list-error" ng-if="results.length == 0">
+						No products matched your search
+					</li>
+					
+					<li ng-repeat="product in $parent.results =(ProductList | filter:{title:query} ) | limitTo:5" ng-show="query" class="product-search-list">
+						<a href="#/details/{{ProductList.indexOf(product)}}">{{product.title}}</a>
+					</li>
+					
+				</ul>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="col-sm-12">
+			<div class="row">
+				<div class="sub-container">
+					<h4 class="title">My Cart</h4>
+					<div class="well">Your cart is empty, <a href="#store">Shop Now</a> to add products.</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--aside-->
+
+	<div class="section col-sm-8">
+		<div class="col-sm-12">
+			<div class="sub-container row" ng-model="ProductList" ng-controller="cartController">
+				<div class="productPageTitle">
+					<h4 class="title">Product Details</h4>
+				</div>
+				<div class="col-sm-12" style="padding:0">
+					<div class="row">
+					<div class="col-sm-6 pdt-img">
+						<div class="panel panel-primary">
+							<div class="panel-body">
+								<img ng-src="{{ProductList[whichItem].img}}" width="100%" height="100%" class="img-responsive">
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<h2 class="pdt-title">{{ProductList[whichItem].title}}</h2>
+						<p class="pdt-price">
+							<span class="old">Rs.{{ProductList[whichItem].oldprice}} </span>
+							<span class="new" mg-model="price">Rs.{{ProductList[whichItem].newprice}}
+								<small class="inc">Inclusive of all taxes</small>
+							</span>
+						</p>
+
+						<p class="desc" ng-model="desc">{{ProductList[whichItem].desc}}</p>
+						<br>
+						<form class="form-group form-inline">
+							<div class="input-group">
+							<span class="input-group-addon">Size</span>
+							<select class="form-control" ng-model="sizefilterquery" >
+								<option value="small" >small</option>
+								<option value="medium">medium</option>
+								<option value="large">large</option>
+							</select>
+							<span class="input-group-addon">Color</span>
+							<select class="form-control" ng-model="colorfilterquery">
+								<option value="white">White</option>
+								<option value="black">Black</option>
+								<option value="blue">Blue</option>
+							</select></div><br><br>
+							<div class="input-group">
+							<span class="input-group-addon">Quantity</span>
+							<input type="number" class="form-control input-mini" ng-model="qty" min="1" ></div>
+							<h4 ng-show="qty" class="pdt-title well" >Net amount :
+							<span class="pricePrivew">Rs.{{(ProductList[whichItem].newprice*qty)}}/-</span>
+							</h4>
+						</form>
+						<div class="row">
+						<div class="button">
+							<div class="col-sm-6">
+								<a href="#cart" class="anchor">
+								<div class="btn btn-md btn-block btn-primary">Buy now</div>
+								</a>
+							</div>
+							
+							<div class="col-sm-6">
+								<div class="btn btn-md btn-block btn-warning" ng-click="addItem()">Add to cart</div>
+							</div>
+						</div>
+						
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12">
+			<div class="sub-container row" ng-model="ProductList">
+				<div class="productPageTitle">
+					<h4 class="title">Description</h4>
+				</div>
+				<div class="col-sm-12">
+					<div class="row">
+						<div ng-controller="reviewController">
+					<div class="col-sm-12">
+						<div class="row">
+						<h3 class="pdt-title pull-left">Review </h3>
+							<h5 class="well pull-right" ng-if="!reviews.length == 0">
+								<span>Total reviews : 
+									<label class="label label-primary">{{noOfReviews}}</label>
+								</span>
+							</h5>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="row">
+
+						<div class="panel panel-danger" ng-if="reviews.length == 0">
+							<div class="panel-body">
+							No reviews yet, be the first to review this Product!
+							</div>
+						</div>
+						<div class="col-sm-12 reviews" ng-repeat="review in reviews | orderBy:'id' | limitTo: -5" >
+						<div class="row panel panel-primary">
+							<div class="panel-body">
+							<h3 class="pdt-title col-sm-6">{{review.username}}</h3>
+							<h3 class="pdt-title col-sm-6"><small>Rated </small>{{review.star}}</h3>
+							<h4 class="col-sm-12"><small><i>{{review.email}}</i></small></h4>
+							</div>
+							<div class="panel-footer">
+							<p>{{review.message}}</p>
+							</div>
+						</div><hr>
+						</div>
+						<form class="form-inline form-group">
+							<div class="input-group">
+								<span class="input-group-addon">Name</span>
+								<input class="form-control" type="text" ng-model="review.username"></input>
+							
+								<span class="input-group-addon">E-mail</span>
+								<input class="form-control" type="email" ng-model="review.email"></input>
+							
+								<span class="input-group-addon">Star</span>
+								<select class="form-control" ng-model="review.star">
+									<option name="oneStar" value="1 star">1 Star</option>
+									<option name="twoStar" value="2 star">2 Star</option>
+									<option name="threeStar" value="3 star">3 Star</option>
+									<option name="fourStar" value="4 star">4 Star</option>
+									<option name="fiveStar" value="5 star">5 Star</option>
+								</select>
+							</div>
+							</form>
+							<textarea class="form-control" rows="5" ng-model="review.message"></textarea><br>
+							<input type="submit" class="btn btn-block btn-success" ng-click="addReview()" value="Submit review"></input>
+
+							 </div>
+						</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>

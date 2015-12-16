@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app="storeApp"> 
+<head>
+	<title>Cart App</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/flatly.min.css">
+	<script type="text/javascript" src="jquery/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript" src="angular/angular.min.js"></script>
+  	<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-animate.js"></script>-->
+  	<script type="text/javascript" src="angular/angular-route.js"></script>
+  	<script type="text/javascript" src="angular/angular-animate.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="controller.js"></script>
+	<script type="text/javascript" src="animations.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="wrap">
+	<div ng-include="'partials/header.html'"></div>
+	<div class="col-sm-12">
+		<div class="container view" ng-view>
+			
+		</div>
+	</div>
+	<div class="col-sm-12 footer"></div>
+</div>
+</div>
+</body>
+</html>

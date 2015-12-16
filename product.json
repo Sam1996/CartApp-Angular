@@ -1,0 +1,98 @@
+[
+		{
+			"title":"Men's Full Sleeve",
+			"sku":"mensfullsleeve",
+			"img":"images/mens/mens full sleeve front.png",
+			"oldprice":680,
+			"newprice":650,
+			"featured":"featured",
+			"desc":"Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit",
+			"comment":[]
+		},
+		{
+			"title":"Men's Sleeve Less",
+			"sku":"menssleeveless",
+			"img":"images/mens/mens sleeveless front.png",
+			"oldprice":690,
+			"newprice":645,
+			"featured":"featured",
+			"desc":"Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit",
+			"comment":[]
+
+		},
+		{
+			"title":"Men's Hoodie",
+			"sku":"menshoodie",
+			"img":"images/mens/mens hoodie front.png",
+			"oldprice":580,
+			"newprice":560,
+			"featured":"featured",
+			"desc":"Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit",
+			"comment":[]
+
+		},
+		{
+			"title":"Men's Round Neck",
+			"sku":"mensroundneck",
+			"img":"images/mens/mens hoodie front.png",
+			"oldprice":700,
+			"newprice":650,
+			"latest":"latest",
+			"desc":"Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit",
+			"comment":[]
+
+		},
+		{
+			"title":"Men's V-neck",
+			"sku":"mensv-neck",
+			"img":"images/mens/mens v-neck front.png",
+			"oldprice":680,
+			"newprice":630,
+			"latest":"latest",
+			"desc":"Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit",
+			"comment":[]
+
+		},
+		{
+			"title":"Men's Polo",
+			"sku":"menspolo",
+			"img":"images/mens/mens polo front.png",
+			"oldprice":675,
+			"newprice":650,
+			"latest":"latest",
+			"desc":"Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit",
+			"comment":[]
+
+		},
+		{
+			"title":"Women's Full Sleeve",
+			"sku":"womensfullsleeve",
+			"img":"images/womens/women polo front.png",
+			"oldprice":666,
+			"newprice":633,
+			"desc":"Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit",
+			"comment":[]
+
+		},
+		{
+			"title":"Women's Sleeve less",
+			"sku":"menssleeveless",
+			"img":"images/womens/womens hoodie front.png",
+			"oldprice":599,
+			"newprice":499,
+			"desc":"Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit",
+			"comment":[{"name":"sam"}]
+
+		},
+		{
+			"title":"Women's Hoodie",
+			"sku":"menshoodie",
+			"img":"images/womens/womens t-shirts-front.png",
+			"oldprice":680,
+			"newprice":650,
+			"featured":"featured",
+			"desc":"Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit Lorem Ipsum Dolor Sit Amit",
+			"comment":[]
+
+		}
+	]

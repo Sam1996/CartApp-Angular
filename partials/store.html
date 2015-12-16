@@ -1,0 +1,81 @@
+<div class="row" ng-controller="ProductController">
+
+		<div class="aside col-sm-4">
+		<div class="col-sm-12">
+		<div class="row">
+			<div class="sub-container" ng-controller="detailsController">
+				<h4 class="title">Search Products</h4>
+				<form class="form-group">
+					<input type="text" class="form-control" ng-model="query" placeholder="Search Products">
+				</form>
+				<div>
+				<ul>
+					<li class="product-search-list-error" ng-if="results.length == 0">
+						No products matched your search
+					</li>
+					
+					<li ng-repeat="product in $parent.results =(ProductList | filter:{title:query} ) | limitTo:5" ng-show="query" class="product-search-list">
+						<a href="#/details/{{ProductList.indexOf(product)}}">{{product.title}}</a>
+					</li>
+					
+				</ul>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="col-sm-12">
+			<div class="row">
+				<div class="sub-container">
+					<h4 class="title">Filter products</h4>
+					<h5 class="sub-title">Filter by price</h5>
+					<form class="form-group form-inline">
+						<input type="radio" name="filter" class="form-control"  ng-model="priceFilter" ng-value="false"/>&nbsp&nbsp
+						<label class="control-label">Low to High</label>
+						&nbsp&nbsp&nbsp&nbsp
+						<input type="radio" name="filter" class="form-control"  ng-model="priceFilter" ng-value="true" />&nbsp&nbsp
+						<label class="control-label">High to Low</label> <hr>
+						<input class="form-control" type="checkbox" name="price" ng-model="priceRangeFilter"></input>&nbsp&nbsp
+						<label class="control-label">&lt 500</label><br>
+						<input class="form-control" type="checkbox" name="price" ng-model="priceRangeFilter"></input>&nbsp&nbsp
+						<label class="control-label">500 - 1000</label><br>
+						<input class="form-control" type="checkbox" name="price" ng-model="priceRangeFilter"></input>&nbsp&nbsp
+						<label class="control-label">1000 - 2000</label><br>
+						<input class="form-control" type="checkbox" name="price" ng-model="priceRangeFilter"></input>&nbsp&nbsp
+						<label class="control-label">2000 - 5000</label><br>
+						<input class="form-control" type="checkbox" name="price" ng-model="priceRangeFilter"></input>&nbsp&nbsp
+						<label class="control-label">5000 &lt</label><hr>
+
+					<h5 class="sub-title">Filter by category</h5>	
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12">
+			<div class="row">
+				<div class="sub-container">
+					<h4 class="title">My Cart</h4>
+					<div class="well">Your cart is empty, <a href="#store">Shop Now</a> to add products.</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section col-sm-8">
+		<div class="col-sm-12">
+		<div class="sub-container  row  ">
+			<h4 class="title">Store</h4>
+			<div class="ProductStore" ng-controller="ProductController">
+				<div class="col-sm-4 productlist" ng-repeat="product in ProductList | orderBy:'newprice':priceFilter">
+				<a href="#/details/{{ProductList.indexOf(product)}}" class="pdt-anchor">
+				<div class="panel panel-primary" >
+					<div class="panel-body">
+						<img ng-src="{{product.img}}" width="100%" height="100%" class="img-responsive">
+						<h4 class="pdt-title"><center>{{product.title}}</center></h4></a>
+						<center><p class="price"><span class="old">Rs.{{product.oldprice}}</span><span class="new">Rs.{{product.newprice}}</span></p></center>
+						<button class="btn btn-block btn-primary">Buy Now</button>
+						<button class="btn btn-block btn-warning">Add to cart</button>
+					</div>
+				</div>
+		</div>
+		</div>
+	</div>
+</div>

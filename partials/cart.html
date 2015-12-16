@@ -1,0 +1,47 @@
+<div class="row">
+<div class="col-sm-12" ng-controller="cartController">
+	<div class="sub-container col-sm-12">
+		<h4 class="title">My Cart</h4>
+		
+		<span class="col-sm-12 alert alert-danger">
+			There is no products in your cart
+			<a href="#store"><span class="">Shop now</span></a>
+		</span>
+		<div class=" col-sm-12">
+				<div class="panel panel-primary row">
+					<div class="panel-heading">Products in Cart</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+						<table class="table">
+							<tr>
+								<th>S.no</th>
+								<th>Pdt.ID</th>
+								<th>Pdt Name</th>
+								<th>Attribute</th>
+								<th>Quantity</th>
+								<th>Price</th>
+								<th>Net Price</th>
+							</tr>
+							<tr ng-repeat="item in cart">
+								<td>{{$index[item]}}</td>
+								<td></td>
+								<td>{{item.name}}</td>
+							</tr>
+							
+						</table>
+						</div>
+					</div>
+					<div class="panel-footer col-sm-12">
+						<div class="pull-left">
+							<h3>Total: Rs.1366/-</h3>
+						</div>
+						<div class="pull-right">
+							<button class="btn btn-md btn-danger">Proceed to checkout</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+	</div>
+</div>
+</div>
